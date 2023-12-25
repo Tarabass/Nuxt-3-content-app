@@ -1,5 +1,10 @@
-<script lang="ts" setup>
-
+<script setup>
+const { data: posts } = await useAsyncData('latest-posts', () =>
+  queryContent('/blog')
+    .sort({ date: 1 })
+    .limit(3)
+    .find()
+)
 </script>
 
 <template>
@@ -29,7 +34,10 @@
     <img src="~/assets/images/danvega-avatar.png" class="w-1/2 md:max-w-sm p-8 mx-auto" />
   </section>
   <section>
-    <h2 class="text-3xl font-bold mt-8">Latest blog posts</h2>
+    <h2 class="text-3xl font-bold mt-8">Latest Blog Posts</h2>
+    <div class="grid md:grid-cols-3 pt-8 gap-10">
+      <Post :posts="posts" />
+    </div>
   </section>
 </template>
 
