@@ -9,6 +9,7 @@ const navigation = [
   { name: 'Blog', href: '/blog', current: route.name?.toString().includes('blog') },
   { name: 'Projects', href: '/projects', current: route.name == 'projects' },
   { name: 'Uses', href: '/uses', current: route.name == 'uses' },
+  { name: 'Editor', href: '/editor', current: route.name == 'editor' }
 ]
 </script>
 
