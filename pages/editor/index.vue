@@ -32,16 +32,16 @@ const { data } = await useAsyncData(`content-${path}`, () => {
   <tiptap-editor v-model="file" auto-save />
   <ContentRenderer :value="data" class="prose my-10 mx-auto max-w-7xl" />
   <ContentList path="/">
-      <template #default="{ list }">
-        <div v-for="article in list" :key="article._path">
-        <h2>{{ article.title }}</h2>
-        <p>{{ article.description }}</p>
-      </div>
-      </template>
-      <template #not-found>
-        <p>No articles found.</p>
-      </template>
-    </ContentList>
+    <template #default="{ list }">
+      <div v-for="article in list" :key="article._path">
+      <h2>{{ article.title }}</h2>
+      <p>{{ article.description }}</p>
+    </div>
+    </template>
+    <template #not-found>
+      <p>No articles found.</p>
+    </template>
+  </ContentList>
 </template>
 
 <style lang="scss" scoped></style>
